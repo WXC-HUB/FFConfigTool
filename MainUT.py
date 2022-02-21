@@ -43,7 +43,7 @@ if __name__ == "__main__":
     
     test_cmd_manager.add_CMD(
         FF_Config_Tool.CMD_Utility.CSV_CMD(
-            FF_Config_Tool.FileLocate.Locate_by_Path("a.csv"),
+            FF_Config_Tool.FileLocate.Locate_by_Name("a_xx.csv" , "xx"),
             FF_Config_Tool.FileOperate.Add_File_With_Line([
                 ["t1" , "t2"],
                 [123 , 321]
