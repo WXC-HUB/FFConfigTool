@@ -7,7 +7,6 @@ from os.path import *
 
 import sys
 p = dirname(abspath(__file__))
-print(p)
 if(not p in sys.path):
     sys.path.append(p)
 import FF_Config_Tool
