@@ -41,7 +41,7 @@ if __name__ == "__main__":
     )
     
     test_cmd_manager.local_path = "D:\p4vspace\DTS\Dev\Config"
-    test_cmd_manager.rglist =['BR'   , 'EUROPE' , 'ID' , 'IND' , 'ME' , 'NA' , 'PK' , 'RU' , 'SAC' , 'TH' , 'TW' , 'US' , 'VN' , 'ZA' , 'BD', 'SG']
+    test_cmd_manager.rglist =['SG']
     
     test_cmd_manager.add_CMD(
         FF_Config_Tool.CMD_Utility.CSV_CMD(
