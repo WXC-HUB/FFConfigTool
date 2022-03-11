@@ -33,27 +33,47 @@ if __name__ == "__main__":
     test_cmd_manager = FF_Config_Tool.CMD_Utility.CSV_CMD_MANAGER()
     
     test_cmd_manager.initP4(
-        port = '*****',
-        user = '*****',
+        port = '****',
+        user = '****',
         password = '*****',
         client = '******',
-        no_connection=True
+        no_connection= False
     )
     
     test_cmd_manager.local_path = "D:\p4vspace\DTS\Dev\Config"
-    test_cmd_manager.rglist =['BR'  , 'EUROPE' , 'ID' , 'IND' , 'ME' , 'NA' , 'PK' , 'RU' , 'SAC' , 'TH' , 'TW' , 'US' , 'VN' , 'ZA' , 'BD', 'SG']
+    test_cmd_manager.rglist =['BR'   , 'EUROPE' , 'ID' , 'IND' , 'ME' , 'NA' , 'PK' , 'RU' , 'SAC' , 'TH' , 'TW' , 'US' , 'VN' , 'ZA' , 'BD', 'SG']
     
-    #test_cmd_manager.add_CMD(
-    #    FF_Config_Tool.CMD_Utility.CSV_CMD(
-    #        FF_Config_Tool.FileLocate.Locate_by_Name("a_xx.csv" , "xx"),
-    #        FF_Config_Tool.FileOperate.Add_File_With_Line([
-    #            ["t1" , "t2"],
-    #            [123 , 321]
-    #        ])
-    #    )
-    #)
-    #
-    #test_cmd_manager.run_all_CMD()
+    test_cmd_manager.add_CMD(
+        FF_Config_Tool.CMD_Utility.CSV_CMD(
+            FF_Config_Tool.FileLocate.Locate_by_Name("BRLeaderboardRankPoint_xx.csv" , "xx"),
+            FF_Config_Tool.FileOperate.Operate_By_Line(
+                line_loc=FF_Config_Tool.Line_Utility.Loc_Line_With_Key_Value(keyname="BRSeasonId" , keyvalue="26"),
+                line_operate=FF_Config_Tool.Line_Utility.Add_Line_And_Change_Key_Value_By_Index(keyname="BRSeasonId" , keyvalue="27")
+            )
+        )
+    )
+    
+    test_cmd_manager.add_CMD(
+        FF_Config_Tool.CMD_Utility.CSV_CMD(
+            FF_Config_Tool.FileLocate.Locate_by_Name("RankTopAward_xx.csv" , "xx"),
+            FF_Config_Tool.FileOperate.Operate_By_Line(
+                line_loc=FF_Config_Tool.Line_Utility.Loc_Line_With_Key_Value(keyname="SeasonId" , keyvalue="26"),
+                line_operate=FF_Config_Tool.Line_Utility.Add_Line_And_Change_Key_Value_By_Index(keyname="SeasonId" , keyvalue="27")
+            )
+        )
+    )
+    
+    test_cmd_manager.add_CMD(
+        FF_Config_Tool.CMD_Utility.CSV_CMD(
+            FF_Config_Tool.FileLocate.Locate_by_Name("RankMasterLevel_xx.csv" , "xx"),
+            FF_Config_Tool.FileOperate.Operate_By_Line(
+                line_loc=FF_Config_Tool.Line_Utility.Loc_Line_With_Key_Value(keyname="SeasonId" , keyvalue="26"),
+                line_operate=FF_Config_Tool.Line_Utility.Add_Line_And_Change_Key_Value_By_Index(keyname="SeasonId" , keyvalue="27")
+            )
+        )
+    )
+    
+    test_cmd_manager.run_all_CMD()
     
     sheet : WorkSheet = FF_Config_Tool.CSVUtility.Open("TestChart.csv")
     
